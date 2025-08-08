@@ -4,16 +4,27 @@ uvicorn[standard]  # Installs uvicorn with necessary dependencies
 pydantic
 requests
 
-# Document Processing & RAG Pipeline
+# LangGraph & LangChain RAG Pipeline
+langchain
+langgraph
+langchain-openai
+langchain-community
+
+# Document Processing & Vector Stores
+PyPDF2
 PyMuPDF
 tabulate
 pypdf # For PDF handling
 python-docx
-llama-index-core
-llama-index-llms-openai
-llama-index-embeddings-openai
-llama-index-vector-stores-pinecone
-pinecone-client
+pinecone
+langchain-pinecone
+
+# Hybrid Search & Reranking
+rank_bm25  # For BM25 keyword search
+sentence-transformers # For cross-encoder reranking
+
+# Core Libraries
+cohere
 openai
 tiktoken # Used by OpenAI models for token counting
 

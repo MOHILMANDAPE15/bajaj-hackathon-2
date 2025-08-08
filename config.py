@@ -18,9 +18,16 @@ class Config:
     DOCUMENTS_PATH: str = "./data/policies"
     
     LOG_LEVEL: str = "INFO"
-    CHUNK_SIZE: int = 1200 
-    CHUNK_OVERLAP: int = 300
-    TOP_K_RESULTS: int = 6
+
+    # --- RAG Pipeline Configuration ---
+    CHUNK_SIZE: int = 1000
+    CHUNK_OVERLAP: int = 200
+    INITIAL_RETRIEVAL_K: int = 7  # Number of docs to fetch initially
+    TOP_K_RESULTS: int = 5  # Number of docs to pass to LLM after reranking
+    CONFIDENCE_THRESHOLD = 0.4  # Lowered threshold to prevent false negatives
+    RERANKER_MODEL: str = 'cross-encoder/ms-marco-MiniLM-L-6-v2'
+    # Weights for hybrid search (BM25, Vector Search)
+    ENSEMBLE_WEIGHTS: list[float] = [0.5, 0.5]
     
     @classmethod
     def validate(cls) -> None:
